@@ -1,0 +1,66 @@
+﻿@model IEnumerable<EvoJiuJitsu.App.ViewModels.AtletaViewModel>
+
+@{
+    ViewData["Title"] = "Lista de Atletas";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Novo Atleta</a>
+</p>
+<table class="table table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sexo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Faixa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoriaPorIdade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoriaPeso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Polo)
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sexo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Faixa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoriaPorIdade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoriaPeso)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Polo)
+                </td>
+            <td>
+                    <a class=" btn btn-info" asp-action="Details" asp-route-id="@item.Id"><span class=" fa fa-search"></span></a>
+                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id"><span class=" fa fa-pencil-alt"></span></a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"><span class=" fa fa-trash"></span></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
