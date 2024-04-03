@@ -34,7 +34,7 @@ namespace EvoJiuJitsu.Business.Services
         {
             if (!ExecurarValidacao(new AtletaValidation(), atleta)) return;
 
-            if (_Atletarepository.Buscar(a => a.Cpf == atleta.Cpf).Result.Any())
+            if (_Atletarepository.Buscar(a => a.Cpf == atleta.Cpf && a.Id != atleta.Id).Result.Any())
             {
                 Notificar("Já Existe um fornecedor com este documento.");
                 return;

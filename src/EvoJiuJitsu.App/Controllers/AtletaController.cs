@@ -1,18 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using EvoJiuJitsu.App.Data;
+﻿using Microsoft.AspNetCore.Mvc;
 using EvoJiuJitsu.App.ViewModels;
-using EvoJiuJitsu.Data.Context;
 using AutoMapper;
 using EvoJiuJitsu.Business.Interfaces;
 using EvoJiuJitsu.Business.Models;
 using EvoJiuJitsu.App.Services;
-using System.Drawing;
 
 namespace EvoJiuJitsu.App.Controllers
 {
@@ -60,10 +51,8 @@ namespace EvoJiuJitsu.App.Controllers
         public async Task<IActionResult> Create(AtletaViewModel atletaViewModel)
         {
             atletaViewModel.Idade = CalcularIdade(atletaViewModel.DataNascimento);
-
             AtletaCategoriaPorIdade.CalcularCategoriaPorIdade(atletaViewModel);
             AtletaCategoriaPorPeso.CalcularCategoriaPeso(atletaViewModel);
-            
 
             if (!ModelState.IsValid) return View(atletaViewModel);
 
@@ -75,10 +64,7 @@ namespace EvoJiuJitsu.App.Controllers
 
             return RedirectToAction("Index");
 
-            /*
-              Testar a validação de criação de novos altletas bem como as edições
-             
-             */
+            
         }
 
         public async Task<IActionResult> Edit(Guid id)
@@ -95,8 +81,12 @@ namespace EvoJiuJitsu.App.Controllers
         public async Task<IActionResult> Edit(Guid id, AtletaViewModel atletaViewModel)
         {
             if (id != atletaViewModel.Id) return NotFound();
+            atletaViewModel.Idade = CalcularIdade(atletaViewModel.DataNascimento);
+            AtletaCategoriaPorIdade.CalcularCategoriaPorIdade(atletaViewModel);
+            AtletaCategoriaPorPeso.CalcularCategoriaPeso(atletaViewModel);
+            
             if (!ModelState.IsValid) return View(atletaViewModel);
-
+            
             var AtletaAtualizado = _Mapper.Map<Atleta>(atletaViewModel);
             await _AtletaService.Atualizar(AtletaAtualizado);
 
@@ -128,7 +118,14 @@ namespace EvoJiuJitsu.App.Controllers
         {
           return _Mapper.Map<AtletaViewModel>(await _AtletaRepository.ObterPorId(id));
         }
+        /*
+         - Terminar de alimentar o banco de dados com as informações dos alunos
+         - Implementar a Paginação na Index Atletas
+         - Implementar a busca por nome aluno e Polo
+         - 
 
+         
+         */
         private string CalcularIdade(DateTime Datanascimento)
         {
             
