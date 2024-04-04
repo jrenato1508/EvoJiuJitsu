@@ -119,9 +119,12 @@ namespace EvoJiuJitsu.App.Controllers
           return _Mapper.Map<AtletaViewModel>(await _AtletaRepository.ObterPorId(id));
         }
         /*
-         - Terminar de alimentar o banco de dados com as informações dos alunos
-         - Implementar a Paginação na Index Atletas
-         - Implementar a busca por nome aluno e Polo
+         - Terminar de alimentar o banco de dados com as informações dos alunos - OK
+         - Implementar a Paginação na Index Atletas - OK
+         - Implementar a busca por nome aluno e Polo - OK
+
+        Adicionando o DataTables 
+        Adicionar o DataTable(paginação) - https://www.youtube.com/watch?v=2UXNZobzWKQ
          - 
 
          
