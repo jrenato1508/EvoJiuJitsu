@@ -23,7 +23,9 @@ namespace EvoJiuJitsu.Business.Models.Validations
                 .NotEmpty().WithMessage("O campo {PropertyName} precisa ser fornecido");
 
             RuleFor(a => a.Cpf)
-                .NotEmpty().WithMessage("O campo {PropertyName} precisa ser fornecido");
+                .NotEmpty().WithMessage("O campo {PropertyName} precisa ser fornecido")
+                .Length(1, 11)
+                .WithMessage("O campo {PropertyName} precisa ter {MaxLength} caracteres");
 
             RuleFor(a => a.Sexo)
                 .NotEmpty().WithMessage("O campo {PropertyName} precisa ser fornecido");

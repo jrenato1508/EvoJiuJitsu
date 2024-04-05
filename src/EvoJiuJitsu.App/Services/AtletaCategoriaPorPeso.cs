@@ -37,35 +37,35 @@ namespace EvoJiuJitsu.App.Services
 
                 switch (PesoAtleta)
                 {
-                    case int intervaloPeso when (intervaloPeso > 0 && intervaloPeso < 53.50):
+                    case int intervaloPeso when (intervaloPeso > 0 && intervaloPeso <= 53.50):
                         atleta.CategoriaPeso = (ViewModels.CategoriaPeso)1;
                         break;
 
-                    case int intervaloPeso when (intervaloPeso > 53.50 && intervaloPeso < 58.50):
+                    case int intervaloPeso when (intervaloPeso > 53.50 && intervaloPeso <= 58.50):
                         atleta.CategoriaPeso = (ViewModels.CategoriaPeso)2;
                         break;
 
-                    case int intervaloPeso when (intervaloPeso > 58.50 && intervaloPeso < 64):
+                    case int intervaloPeso when (intervaloPeso > 58.50 && intervaloPeso <= 64):
                         atleta.CategoriaPeso = (ViewModels.CategoriaPeso)3;
                         break;
 
-                    case int intervaloPeso when (intervaloPeso > 64 && intervaloPeso < 69):
+                    case int intervaloPeso when (intervaloPeso > 64 && intervaloPeso <= 69):
                         atleta.CategoriaPeso = (ViewModels.CategoriaPeso)4;
                         break;
 
-                    case int intervaloPeso when (intervaloPeso > 69 && intervaloPeso < 74):
+                    case int intervaloPeso when (intervaloPeso > 69 && intervaloPeso <= 74):
                         atleta.CategoriaPeso = (ViewModels.CategoriaPeso)5;
                         break;
 
-                    case int intervaloPeso when (intervaloPeso > 74 && intervaloPeso < 79.30):
+                    case int intervaloPeso when (intervaloPeso > 74 && intervaloPeso <= 79.30):
                         atleta.CategoriaPeso = (ViewModels.CategoriaPeso)6;
                         break;
 
-                    case int intervaloPeso when (intervaloPeso > 79.30 && intervaloPeso < 84.30):
+                    case int intervaloPeso when (intervaloPeso > 79.30 && intervaloPeso <= 84.30):
                         atleta.CategoriaPeso = (ViewModels.CategoriaPeso)7;
                         break;
 
-                    case int intervaloPeso when (intervaloPeso > 84.30 && intervaloPeso < 89.30):
+                    case int intervaloPeso when (intervaloPeso > 84.30 && intervaloPeso <= 89.30):
                         atleta.CategoriaPeso = (ViewModels.CategoriaPeso)8;
                         break;
 
@@ -86,23 +86,23 @@ namespace EvoJiuJitsu.App.Services
 
                 switch (PesoAtleta)
                 {
-                    case int intervaloPeso when (intervaloPeso > 0 && intervaloPeso < 48.30):
+                    case int intervaloPeso when (intervaloPeso > 0 && intervaloPeso <= 48.30):
                         atleta.CategoriaPeso = (ViewModels.CategoriaPeso)2;
                         break;
 
-                    case int intervaloPeso when (intervaloPeso > 48.30 && intervaloPeso < 52.50):
+                    case int intervaloPeso when (intervaloPeso > 48.30 && intervaloPeso <= 52.50):
                         atleta.CategoriaPeso = (ViewModels.CategoriaPeso)3;
                         break;
 
-                    case int intervaloPeso when (intervaloPeso > 52.50 && intervaloPeso < 56.50):
+                    case int intervaloPeso when (intervaloPeso > 52.50 && intervaloPeso <= 56.50):
                         atleta.CategoriaPeso = (ViewModels.CategoriaPeso)4;
                         break;
 
-                    case int intervaloPeso when (intervaloPeso > 56.50 && intervaloPeso < 60.50):
+                    case int intervaloPeso when (intervaloPeso > 56.50 && intervaloPeso <= 60.50):
                         atleta.CategoriaPeso = (ViewModels.CategoriaPeso)5;
                         break;
 
-                    case int intervaloPeso when (intervaloPeso > 60.50 && intervaloPeso < 65):
+                    case int intervaloPeso when (intervaloPeso > 60.50 && intervaloPeso <= 65):
                         atleta.CategoriaPeso = (ViewModels.CategoriaPeso)6;
                         break;
 
@@ -123,15 +123,15 @@ namespace EvoJiuJitsu.App.Services
 
                 switch (PesoAtleta)
                 {
-                    case int intervaloPeso when (intervaloPeso > 0 && intervaloPeso < 57.50):
+                    case int intervaloPeso when (intervaloPeso > 0 && intervaloPeso <= 57.50):
                         atleta.CategoriaPeso = (ViewModels.CategoriaPeso)1;
                         break;
 
-                    case int intervaloPeso when (intervaloPeso > 57.50 && intervaloPeso < 64):
+                    case int intervaloPeso when (intervaloPeso > 57.50 && intervaloPeso <= 64):
                         atleta.CategoriaPeso = (ViewModels.CategoriaPeso)2;
                         break;
 
-                    case int intervaloPeso when (intervaloPeso > 64 && intervaloPeso < 70):
+                    case int intervaloPeso when (intervaloPeso > 64 && intervaloPeso <= 70):
                         atleta.CategoriaPeso = (ViewModels.CategoriaPeso)3;
                         break;
 

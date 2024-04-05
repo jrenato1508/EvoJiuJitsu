@@ -45,7 +45,7 @@ namespace EvoJiuJitsu.Business.Services
 
         public async Task Remover(Guid id)
         {
-            var atleta = await _Atletarepository.ObterPorId(id);
+            var atleta = await _Atletarepository.ObterAtletaPorId(id);
             if (atleta == null)
             {
                 Notificar("Nenhum Atleta foi encontrado com o ID fornecido");

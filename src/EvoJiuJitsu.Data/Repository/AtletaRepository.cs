@@ -20,5 +20,11 @@ namespace EvoJiuJitsu.Data.Repository
                                     .OrderBy(x => x.Nome)
                                     .ToListAsync();
         }
+
+        public async Task<Atleta> ObterAtletaPorId(Guid id)
+        {
+            return await _db.Atletas.AsNoTracking()
+                                    .FirstAsync(x => x.Id == id);
+        }
     }
 }

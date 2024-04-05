@@ -53,6 +53,7 @@ namespace EvoJiuJitsu.App.Controllers
             atletaViewModel.Idade = CalcularIdade(atletaViewModel.DataNascimento);
             AtletaCategoriaPorIdade.CalcularCategoriaPorIdade(atletaViewModel);
             AtletaCategoriaPorPeso.CalcularCategoriaPeso(atletaViewModel);
+            FormatarDocumento.FormatarDocumentos(atletaViewModel);
 
             if (!ModelState.IsValid) return View(atletaViewModel);
 
@@ -84,6 +85,7 @@ namespace EvoJiuJitsu.App.Controllers
             atletaViewModel.Idade = CalcularIdade(atletaViewModel.DataNascimento);
             AtletaCategoriaPorIdade.CalcularCategoriaPorIdade(atletaViewModel);
             AtletaCategoriaPorPeso.CalcularCategoriaPeso(atletaViewModel);
+            FormatarDocumento.FormatarDocumentos(atletaViewModel);
             
             if (!ModelState.IsValid) return View(atletaViewModel);
             
@@ -109,25 +111,26 @@ namespace EvoJiuJitsu.App.Controllers
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
             var Atleta = await ObterAtleta(id);
+
             if(Atleta == null)  return NotFound();
+
             await _AtletaService.Remover(id);
+
+            if(!OperacaoValida()) return View(Atleta);
+
             return RedirectToAction(nameof(Index));
         }
 
         private async Task<AtletaViewModel> ObterAtleta(Guid id)
         {
-          return _Mapper.Map<AtletaViewModel>(await _AtletaRepository.ObterPorId(id));
+          return _Mapper.Map<AtletaViewModel>(await _AtletaRepository.ObterAtletaPorId(id));
         }
         /*
          - Terminar de alimentar o banco de dados com as informações dos alunos - OK
          - Implementar a Paginação na Index Atletas - OK
          - Implementar a busca por nome aluno e Polo - OK
+         - Corrigir a action Edit
 
-        Adicionando o DataTables 
-        Adicionar o DataTable(paginação) - https://www.youtube.com/watch?v=2UXNZobzWKQ
-         - 
-
-         
          */
         private string CalcularIdade(DateTime Datanascimento)
         {

@@ -19,7 +19,7 @@ namespace EvoJiuJitsu.App.Services
                         alteta.CategoriaPorIdade = (ViewModels.CategoriaIdade)2;
                         break;
 
-                    case int intervalo when (intervalo > 18 && intervalo <= 29):
+                    case int intervalo when (intervalo > 18 && intervalo <= 30):
                         alteta.CategoriaPorIdade = (ViewModels.CategoriaIdade)3;
                         break;
 

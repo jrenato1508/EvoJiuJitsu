@@ -10,5 +10,6 @@ namespace EvoJiuJitsu.Business.Interfaces
     public interface IAtletaRepository : IRepository<Atleta>
     {
         Task<IEnumerable<Atleta>> ObterAtletasOrdemAlfabetica();
+        Task<Atleta> ObterAtletaPorId(Guid id);
     }
 }
