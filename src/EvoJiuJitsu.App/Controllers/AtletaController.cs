@@ -129,7 +129,11 @@ namespace EvoJiuJitsu.App.Controllers
          - Terminar de alimentar o banco de dados com as informações dos alunos - OK
          - Implementar a Paginação na Index Atletas - OK
          - Implementar a busca por nome aluno e Polo - OK
-         - Corrigir a action Edit
+         - Corrigir a action Edit -OK
+         - Formatar CPF para adicionar no Banco - OK
+         - Formatar CPF para exibir na view
+         - Configurar Filto Categoria Peso
+         - 
 
          */
         private string CalcularIdade(DateTime Datanascimento)
