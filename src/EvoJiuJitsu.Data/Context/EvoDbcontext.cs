@@ -10,6 +10,8 @@ namespace EvoJiuJitsu.Data.Context
      
         public DbSet<Atleta> Atletas { get; set; }
 
+        public DbSet<Endereco> Enderecos { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(EvoDbcontext).Assembly);

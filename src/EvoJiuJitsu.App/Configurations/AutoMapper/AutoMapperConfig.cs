@@ -9,6 +9,7 @@ namespace EvoJiuJitsu.App.Configurations.AutoMapper
         public AutoMapperConfig()
         {
             CreateMap<Atleta, AtletaViewModel>().ReverseMap();
+            CreateMap<Endereco, EnderecoViewModel>().ReverseMap();
         }
     }
 }

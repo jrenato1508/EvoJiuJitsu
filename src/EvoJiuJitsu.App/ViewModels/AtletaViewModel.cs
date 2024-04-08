@@ -28,6 +28,10 @@ namespace EvoJiuJitsu.App.ViewModels
         public Sexo Sexo { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é Obrigatório")]
+        [DataType(DataType.PhoneNumber)]
+        public string Telefone { get; set; }
+
+        [Required(ErrorMessage = "O campo {0} é Obrigatório")]
         public DateTime DataNascimento { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é Obrigatório")]
@@ -41,11 +45,15 @@ namespace EvoJiuJitsu.App.ViewModels
         [DisplayName("Categoria Peso")]
         public CategoriaPeso CategoriaPeso { get; set; }
 
+        public DateTime DataCadastro { get; set; }
+
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
         public Polo Polo { get; set; }
 
-        public DateTime DataCadastro { get; set; }
-      
+        public EnderecoViewModel Endereco { get; set; }
+
+
+
     }
 
     public enum Polo

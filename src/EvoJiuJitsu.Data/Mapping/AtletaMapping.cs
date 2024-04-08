@@ -21,7 +21,7 @@ namespace EvoJiuJitsu.Data.Mapping
 
             builder.Property(a => a.Idade)
                 .IsRequired()
-                .HasColumnType("nchar(2)");
+                .HasColumnType("nvarchar(3)");
 
             builder.Property(a => a.Peso)
                 .IsRequired()
@@ -30,6 +30,9 @@ namespace EvoJiuJitsu.Data.Mapping
             builder.Property(a => a.Cpf)
                 .IsRequired()
                 .HasColumnType("nvarchar(15)");
+
+            builder.HasOne(a => a.Endereco)
+                   .WithOne(e => e.Atleta);
 
             builder.ToTable("Atletas");
         }

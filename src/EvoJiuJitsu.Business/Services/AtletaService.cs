@@ -12,9 +12,12 @@ namespace EvoJiuJitsu.Business.Services
     public class AtletaService : BaseService, IAtletaService
     {
         private readonly IAtletaRepository _Atletarepository;
-        public AtletaService(INotificador notificador, IAtletaRepository atletarepository) : base(notificador)
+        private readonly IEnderecoRepository _EnderecoRepository;
+        public AtletaService(INotificador notificador, IAtletaRepository atletarepository,
+                             IEnderecoRepository enderecoRepository) : base(notificador)
         {
             _Atletarepository = atletarepository;
+            _EnderecoRepository = enderecoRepository;
         }
 
         public async Task Adicionar(Atleta atleta)
@@ -46,10 +49,17 @@ namespace EvoJiuJitsu.Business.Services
         public async Task Remover(Guid id)
         {
             var atleta = await _Atletarepository.ObterAtletaPorId(id);
+
             if (atleta == null)
             {
                 Notificar("Nenhum Atleta foi encontrado com o ID fornecido");
                 return;
+            }
+            var endereco = await _EnderecoRepository.ObterAtletaEnderecoPorAtleta(id);
+
+            if(endereco !=null)
+            {
+                await _EnderecoRepository.Remover(endereco.Id);
             }
 
             await _Atletarepository.Remover(id);

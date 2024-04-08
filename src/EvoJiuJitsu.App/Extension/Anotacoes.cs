@@ -18,5 +18,27 @@
          Na pagina _Layout e na pagina index de atleta
          */
         #endregion
+
+
+
+        /* 
+            *  TASK EM DESENVOLVIMENTO  *
+             
+             
+        - Terminar de alimentar o banco de dados com as informações dos alunos - OK
+        - Implementar a Paginação na Index Atletas - OK
+        - Implementar a busca por nome aluno e Polo - OK
+        - Corrigir a action Edit -OK
+        - Formatar CPF para adicionar no Banco - OK
+        - Formatar CPF para exibir na view - OK
+        - Adicionar Enderço Atleta   
+            -Criei a view endereço, falta mostrar o endereço do usuário na tela de detalhes e editar, falta também adicionaro comando buscar cep
+        - Adicionar Ficha Nutrisional
+        - Configurar Filto Categoria Peso
+        -  
+        - Criar Controller de ADM(Criar CRUD para Faixa, Categoria Idade,Categoria Peso e Polo)
+        - 
+
+        */
     }
 }

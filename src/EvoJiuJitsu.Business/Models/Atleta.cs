@@ -15,6 +15,7 @@ namespace EvoJiuJitsu.Business.Models
         public string Idade { get; set; }
         public string Peso { get; set; }
         public string Cpf { get; set; }
+        public string Telefone { get; set; }
         public Sexo Sexo { get; set; }
         public DateTime DataNascimento { get; set; }
         public Faixa Faixa { get; set; }
@@ -22,6 +23,7 @@ namespace EvoJiuJitsu.Business.Models
         public CategoriaPeso CategoriaPeso { get; set; }
         public DateTime DataCadastro { get; set; }
         public Polo Polo { get; set; }
+        public Endereco Endereco { get; set; }
     }
 }
 public enum Polo

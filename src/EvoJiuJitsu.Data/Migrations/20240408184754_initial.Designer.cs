@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EvoJiuJitsu.Data.Migrations
 {
     [DbContext(typeof(EvoDbcontext))]
-    [Migration("20240329194017_updateTbAtleta")]
-    partial class updateTbAtleta
+    [Migration("20240408184754_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -67,9 +67,72 @@ namespace EvoJiuJitsu.Data.Migrations
                     b.Property<int>("Sexo")
                         .HasColumnType("int");
 
+                    b.Property<string>("Telefone")
+                        .HasColumnType("Varchar(100");
+
                     b.HasKey("Id");
 
                     b.ToTable("Atletas", (string)null);
+                });
+
+            modelBuilder.Entity("EvoJiuJitsu.Business.Models.Endereco", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AtletaId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Bairro")
+                        .IsRequired()
+                        .HasColumnType("Varchar(100");
+
+                    b.Property<string>("Cep")
+                        .IsRequired()
+                        .HasColumnType("Varchar(100");
+
+                    b.Property<string>("Cidade")
+                        .IsRequired()
+                        .HasColumnType("Varchar(100");
+
+                    b.Property<string>("Complemento")
+                        .IsRequired()
+                        .HasColumnType("Varchar(100");
+
+                    b.Property<string>("Estado")
+                        .IsRequired()
+                        .HasColumnType("Varchar(100");
+
+                    b.Property<string>("Logradouro")
+                        .IsRequired()
+                        .HasColumnType("Varchar(100");
+
+                    b.Property<string>("Numero")
+                        .IsRequired()
+                        .HasColumnType("Varchar(100");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AtletaId")
+                        .IsUnique();
+
+                    b.ToTable("Enderecos", (string)null);
+                });
+
+            modelBuilder.Entity("EvoJiuJitsu.Business.Models.Endereco", b =>
+                {
+                    b.HasOne("EvoJiuJitsu.Business.Models.Atleta", "Atleta")
+                        .WithOne("Endereco")
+                        .HasForeignKey("EvoJiuJitsu.Business.Models.Endereco", "AtletaId")
+                        .IsRequired();
+
+                    b.Navigation("Atleta");
+                });
+
+            modelBuilder.Entity("EvoJiuJitsu.Business.Models.Atleta", b =>
+                {
+                    b.Navigation("Endereco");
                 });
 #pragma warning restore 612, 618
         }

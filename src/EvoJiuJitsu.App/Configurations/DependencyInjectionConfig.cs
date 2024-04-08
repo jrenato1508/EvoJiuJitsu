@@ -12,6 +12,7 @@ namespace EvoJiuJitsu.App.Configurations
         {
             services.AddScoped<EvoDbcontext>();
             services.AddScoped<IAtletaRepository, AtletaRepository>();
+            services.AddScoped<IEnderecoRepository, EnderecoRepository>();
             services.AddScoped<IAtletaService, AtletaService>();
             services.AddScoped<INotificador, Notificador>();
 
