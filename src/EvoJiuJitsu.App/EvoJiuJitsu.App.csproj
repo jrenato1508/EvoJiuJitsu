@@ -22,7 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EvoJiuJitsu.Business\EvoJiuJitsu.Business.csproj" />
     <ProjectReference Include="..\EvoJiuJitsu.Data\EvoJiuJitsu.Data.csproj" />
   </ItemGroup>
 

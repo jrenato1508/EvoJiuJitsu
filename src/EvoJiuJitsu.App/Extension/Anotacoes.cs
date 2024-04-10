@@ -36,7 +36,7 @@
             -Falta ajustar o Layout de _endereco(retirar o ID atleta), e ajustar a consulta do endereço atleta nas outras views - OK
             - Ajustar Editar Endereço via Modal - OK
             - Inclusão dos Usuários e Enderecosno banco de dados - OK
-            - Esconder A edição de endereço quando a partial view não estiver na index de edição
+            - Esconder A edição de endereço quando a partial view não estiver na index de edição -OK
         - Adicionar Ficha Nutrisional
         - Configurar Filto Categoria Peso
         -  

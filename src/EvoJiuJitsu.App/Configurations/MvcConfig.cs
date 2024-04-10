@@ -40,6 +40,9 @@ namespace EvoJiuJitsu.App.Configurations
             services.AddRazorPages()
                     .AddRazorRuntimeCompilation();
 
+            // Para funcionar o Taghelper ApagaElementoByActionTagHelper e outros
+            services.AddHttpContextAccessor();
+
             // Add services to the container.
             return services;
         }
