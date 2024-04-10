@@ -1,4 +1,5 @@
 ﻿@model EvoJiuJitsu.App.ViewModels.AtletaViewModel
+@using EvoJiuJitsu.App.Extension
 
 @{
     ViewData["Title"] = "Editar Alteta"
@@ -31,6 +32,11 @@
                 <label asp-for="Cpf" class="control-label"></label>
                 <input asp-for="Cpf" class="form-control" />
                 <span asp-validation-for="Cpf" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Telefone" class="control-label"></label>
+                <input asp-for="Telefone" class="form-control" />
+                <span asp-validation-for="Telefone" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Sexo" class="control-label"></label><br />
@@ -81,10 +87,29 @@
     </div>
 </div>
 
-<div>
-    
+<div id="EnderecoTarget">
+    <partial name="_DetalhesEndereco" />
 </div>
 
+
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="myModalContent"></div>
+        </div>
+    </div>
+</div>
+
+
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        $(document).ready(function () {
+            SetModal();
+        });
+    </script>
+
 }

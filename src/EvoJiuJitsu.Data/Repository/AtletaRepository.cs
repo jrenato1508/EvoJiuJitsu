@@ -26,5 +26,14 @@ namespace EvoJiuJitsu.Data.Repository
             return await _db.Atletas.AsNoTracking()
                                     .FirstAsync(x => x.Id == id);
         }
+
+        public async Task<Atleta> ObterEndercoAtleta(Guid id)
+        {
+            return await _db.Atletas.AsNoTracking()
+                                    .Include(a => a.Endereco)
+                                    .FirstOrDefaultAsync(a => a.Id == id);
+        }
+
+        
     }
 }

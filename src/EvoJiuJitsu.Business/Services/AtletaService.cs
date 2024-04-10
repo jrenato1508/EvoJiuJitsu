@@ -65,9 +65,20 @@ namespace EvoJiuJitsu.Business.Services
             await _Atletarepository.Remover(id);
         }
 
+
+        public async Task AtualizarEndereco(Endereco endereco)
+        {
+            if (!ExecurarValidacao(new EnderecoValidation(), endereco)) return;
+
+            await _EnderecoRepository.Atualizar(endereco);
+        }
+
+
         public void Dispose()
         {
             _Atletarepository?.Dispose();
         }
+
+       
     }
 }

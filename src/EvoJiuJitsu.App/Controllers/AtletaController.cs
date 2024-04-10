@@ -4,6 +4,7 @@ using AutoMapper;
 using EvoJiuJitsu.Business.Interfaces;
 using EvoJiuJitsu.Business.Models;
 using EvoJiuJitsu.App.Services;
+using Microsoft.AspNetCore.Identity;
 
 namespace EvoJiuJitsu.App.Controllers
 {
@@ -31,7 +32,7 @@ namespace EvoJiuJitsu.App.Controllers
 
         public async Task<IActionResult> Details(Guid id)
         {
-            var atleta = await ObterAtleta(id);
+            var atleta = await ObterAltetaEndereco(id);
 
             if (atleta == null)
             {
@@ -70,7 +71,7 @@ namespace EvoJiuJitsu.App.Controllers
 
         public async Task<IActionResult> Edit(Guid id)
         {
-            var atletaViewModel = await ObterAtleta(id);
+            var atletaViewModel = await ObterAltetaEndereco(id);
 
             if (atletaViewModel == null) return NotFound();
 
@@ -121,9 +122,57 @@ namespace EvoJiuJitsu.App.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+
+        public async Task<IActionResult> AtualizarEndereco(Guid id)
+        {
+            var atleta = await ObterAltetaEndereco(id);
+            
+            if(atleta == null) return NotFound();
+
+            return PartialView("_AtualizarEndereco", new AtletaViewModel { Endereco = atleta.Endereco });
+
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AtualizarEndereco(AtletaViewModel AtletaViewModel)
+        {
+            ModelState.Remove("Nome");
+            ModelState.Remove("Peso");
+            ModelState.Remove("Cpf");
+            ModelState.Remove("Telefone");
+         
+
+            if (!ModelState.IsValid) return PartialView("_AtualizarEndereco", AtletaViewModel);
+
+            await _AtletaService.AtualizarEndereco(_Mapper.Map<Endereco>(AtletaViewModel.Endereco));
+
+            var url = Url.Action("ObterEndereco","Atleta", new {id = AtletaViewModel.Endereco.AtletaId});
+
+            return Json(new { success = true, url });
+        }
+
+        public async Task<IActionResult> ObterEndereco(Guid id)
+        {
+            var atleta = await ObterAltetaEndereco(id);
+
+            if (atleta == null)
+            {
+                return NotFound();
+            }
+
+            return PartialView("_DetalhesEndereco", atleta);
+        }
+
+
         private async Task<AtletaViewModel> ObterAtleta(Guid id)
         {
           return _Mapper.Map<AtletaViewModel>(await _AtletaRepository.ObterAtletaPorId(id));
+        }
+
+        private async Task<AtletaViewModel> ObterAltetaEndereco(Guid id)
+        {
+            return _Mapper.Map<AtletaViewModel>(await _AtletaRepository.ObterEndercoAtleta(id));
         }
        
         private string CalcularIdade(DateTime Datanascimento)

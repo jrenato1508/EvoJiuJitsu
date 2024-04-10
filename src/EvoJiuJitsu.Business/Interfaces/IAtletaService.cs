@@ -14,5 +14,7 @@ namespace EvoJiuJitsu.Business.Interfaces
         Task Atualizar(Atleta atleta);
 
         Task Remover(Guid id);
+
+        Task AtualizarEndereco(Endereco endereco);
     }
 }

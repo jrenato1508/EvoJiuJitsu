@@ -8,7 +8,7 @@
 
 <h4>Adicione um novo atleta</h4>
 <hr />
-<div class="row">
+<div class="row" >
     <div class="col-md-4">
         <form asp-action="Create">
             <vc:Summary></vc:Summary>
@@ -87,13 +87,14 @@
     </div>
 </div>
 
-<div>
-    
-</div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        BuscaCep();
+    </script>
+
 }
-<script>
-    BuscaCep();
-</script>
+

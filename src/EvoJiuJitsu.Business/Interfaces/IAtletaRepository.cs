@@ -11,5 +11,9 @@ namespace EvoJiuJitsu.Business.Interfaces
     {
         Task<IEnumerable<Atleta>> ObterAtletasOrdemAlfabetica();
         Task<Atleta> ObterAtletaPorId(Guid id);
+
+        Task<Atleta> ObterEndercoAtleta(Guid id);
+
+        
     }
 }
