@@ -1,5 +1,5 @@
 ﻿@model EvoJiuJitsu.App.ViewModels.AtletaViewModel
-
+@using EvoJiuJitsu.App.Extension
 @{
     ViewData["Title"] = "Excluir Atleta";
 }
@@ -34,7 +34,13 @@
             @Html.DisplayNameFor(model => model.Cpf)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Cpf)
+            @this.FormatarDocumento(Model.Cpf);
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Telefone)
+        </dt>
+        <dd class="col-sm-10">
+            @this.FormataTelefone(Model.Telefone)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Sexo)

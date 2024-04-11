@@ -37,10 +37,15 @@
             - Ajustar Editar Endereço via Modal - OK
             - Inclusão dos Usuários e Enderecosno banco de dados - OK
             - Esconder A edição de endereço quando a partial view não estiver na index de edição -OK
-        - Adicionar Ficha Nutrisional
+        - Aunteticação de usuário
+            - Adicionr/Criar Painel de autenticação
+            - CRUD Usuário,Clains,Troca Sennha
+            - Criar Painel Adim
+            - Adicionar Authorizen nas controllers
+        - Adicionar Ficha Nutrisional Atleta
         - Configurar Filto Categoria Peso
         -  
-        - Criar Controller de ADM(Criar CRUD para Faixa, Categoria Idade,Categoria Peso e Polo)
+        
         - 
 
         */

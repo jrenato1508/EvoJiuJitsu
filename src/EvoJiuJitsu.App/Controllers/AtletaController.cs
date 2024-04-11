@@ -99,7 +99,7 @@ namespace EvoJiuJitsu.App.Controllers
 
         public async Task<IActionResult> Delete(Guid id)
         {
-            var alteta = await ObterAtleta(id);
+            var alteta = await ObterAltetaEndereco(id);
 
             if (alteta == null) return NotFound();
 
@@ -111,7 +111,7 @@ namespace EvoJiuJitsu.App.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var Atleta = await ObterAtleta(id);
+            var Atleta = await ObterAltetaEndereco(id);
 
             if(Atleta == null)  return NotFound();
 
