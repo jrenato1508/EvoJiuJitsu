@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace EvoJiuJitsu.App.Services
 {
-    public static class FormatarDocumento
+    public  class FormatarDocumento
     {
         #region OBS
         // Passamos a responsabilidade de validar o cpf para a camada Business utilizando o fluent Validation para isso. Deixei o código pronto aqui para reuso caso precisarmos

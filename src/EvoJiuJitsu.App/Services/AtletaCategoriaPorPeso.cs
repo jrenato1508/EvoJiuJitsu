@@ -2,7 +2,7 @@
 
 namespace EvoJiuJitsu.App.Services
 {
-    public static class AtletaCategoriaPorPeso
+    public  class AtletaCategoriaPorPeso
     {
         public static void CalcularCategoriaPeso(AtletaViewModel atletaViewModel)
         {

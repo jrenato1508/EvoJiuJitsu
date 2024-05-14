@@ -2,7 +2,7 @@
 
 namespace EvoJiuJitsu.App.Services
 {
-    public static class AtletaCategoriaPorIdade
+    public class AtletaCategoriaPorIdade
     {
         #region AtletaCategoriaIdade
         public static void CalcularCategoriaPorIdade(AtletaViewModel alteta)
